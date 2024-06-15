@@ -121,18 +121,18 @@ export default function Home() {
       showCursor: false,
     });
 
-    const reqData = {
-      title: similar.result[0].title,
-      description: JSON.parse(similar.result[0].description),
-      id: similar.result[0].id,
-    };
+    console.log(JSON.stringify(similar.result[0].description));
 
     const imgResponse = await fetch("/api/getImg", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(reqData),
+      body: JSON.stringify({
+        title: similar.result[0].title,
+        description: JSON.stringify(similar.result[0].description),
+        id: similar.result[0].id,
+      }),
     });
     const img = await imgResponse.json();
     setCurImg(img.base64);
