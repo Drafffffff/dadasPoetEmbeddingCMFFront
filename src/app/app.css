@@ -34,3 +34,15 @@ main {
     inset -20px -20px 40px #ffffff;
   transition: 0.3s;
 }
+
+@keyframes flash {
+  0% {
+    background-color: #e8e8e8;
+  }
+  50% {
+    background-color: #dfdfdf;
+  }
+  100% {
+    background-color: #e8e8e8;
+  }
+}

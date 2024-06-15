@@ -29,6 +29,7 @@ export default function Home() {
   const contentTypeRef = useRef<HTMLDivElement | null>(null);
   const descriptionTypeRef = useRef<HTMLDivElement | null>(null);
   const [curImg, setCurImg] = useState<string | null>(null);
+  const [isStartImgLoading, setIsStartImgLoading] = useState(false);
   const handleInput = async () => {
     anime.remove(".card");
     anime.set(".card", {
@@ -75,6 +76,7 @@ export default function Home() {
       setInputPlaceholder("Failed! Type here again...");
       return;
     }
+    setIsStartImgLoading(true);
     const { data: similar } = await similarResponse.json();
     if (similar.result.length === 0) {
       anime.remove(".card");
@@ -102,8 +104,6 @@ export default function Home() {
       typeSpeed: 100,
       showCursor: false,
     });
-    setInputDisabled(false);
-    setInputPlaceholder("Type here...");
     new Typed(auhtorTypeRef.current, {
       strings: [poet.author],
       typeSpeed: 100,
@@ -122,7 +122,6 @@ export default function Home() {
     });
 
     console.log(JSON.stringify(similar.result[0].description));
-
     const imgResponse = await fetch("/api/getImg", {
       method: "POST",
       headers: {
@@ -136,6 +135,9 @@ export default function Home() {
     });
     const img = await imgResponse.json();
     setCurImg(img.base64);
+    setIsStartImgLoading(false);
+    setInputDisabled(false);
+    setInputPlaceholder("Type here...");
   };
 
   return (
@@ -148,6 +150,7 @@ export default function Home() {
               backgroundImage: curImg ? `url(${curImg})` : "",
               backgroundSize: "cover",
               transition: "backgroundImage 0.5s",
+              animation: isStartImgLoading ? "flash 2s infinite" : "",
             }}
           >
             <div
