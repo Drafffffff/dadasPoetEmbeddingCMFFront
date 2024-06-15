@@ -159,17 +159,17 @@ export default function Home() {
               }}
             >
               <p
-                className="title select-none w-full text-center font-bold text-xl "
+                className="title select-none w-full text-center font-bold text-xl px-8 "
                 ref={titledTypeRef}
               ></p>
 
               <p
-                className="author select-none w-full text-center   text-xs my-2  "
+                className="author select-none w-full text-center text-xs my-2 px-8 "
                 ref={auhtorTypeRef}
               ></p>
 
               <p
-                className="content select-none w-full text-center  "
+                className="content select-none w-full text-center px-8 "
                 ref={contentTypeRef}
               ></p>
             </div>
