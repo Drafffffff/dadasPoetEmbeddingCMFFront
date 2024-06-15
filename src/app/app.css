@@ -1,0 +1,36 @@
+:root {
+  background: #e8e8e8;
+  color: #000;
+}
+main {
+  color: black;
+}
+.card {
+  background: #e8e8e8;
+  border-radius: 50%;
+  box-shadow:
+    20px 20px 60px #c5c5c5,
+    -20px -20px 60px #ffffff;
+}
+.input {
+  color: #000;
+
+  border: none;
+  padding: 1rem;
+  background: #e8e8e8;
+  border-radius: 0.5rem;
+  box-shadow:
+    20px 20px 60px #c5c5c5,
+    -20px -20px 60px #ffffff;
+  transition: 0.3s;
+}
+
+.input:focus {
+  outline-color: #e8e8e8;
+  background: #e8e8e8;
+  border-radius: 1rem;
+  box-shadow:
+    inset 20px 20px 40px #c5c5c5,
+    inset -20px -20px 40px #ffffff;
+  transition: 0.3s;
+}
